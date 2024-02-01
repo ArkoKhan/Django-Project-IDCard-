@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<!-- ============== title ============================ -->
+
+{% block title %} Home {% endblock %}
+
+<!-- ================================================ -->
+
+<!-- ============================== body ================================ -->
+
+{% block body %}
+
+<h2>Create Profile</h2>
+
+<!-- ====================== form start==========================  -->
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <!-- ============ name ========== -->
+  <div class="mb-3">
+    <label for="n" class="form-label">Name</label>
+    <input type="text" class="form-control" id="n" name="name" required />
+  </div>
+
+  <!-- ======================= Email========== -->
+  <div class="mb-3">
+    <label for="e" class="form-label">Email</label>
+    <input type="email" class="form-control" id="e" name="email" />
+  </div>
+
+  <!-- =============== Age ====================== -->
+  <div class="mb-3">
+    <label for="a" class="form-label">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      id="a"
+      name="age"
+      value="20"
+      required
+    />
+  </div>
+
+  <!-- =============== GEnder ==================== -->
+  <div class="mb-3">
+    <label for="g" class="form-label">Gender</label>
+    <select class="form-select" id="g" name="gender" required>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Others">Others</option>
+    </select>
+  </div>
+
+  <!-- =========== Image=============== -->
+  <div class="mb-3">
+    <label for="i" class="form-label">Image</label>
+    <input
+      type="file"
+      class="form-control"
+      id="i"
+      name="image"
+      accept="image/*"
+    />
+  </div>
+
+  <!-- ===============Address========== -->
+  <div class="mb-3">
+    <label for="add" class="form-label">Address</label>
+    <textarea class="form-control" id="add" name="address" rows="3"></textarea>
+  </div>
+
+  <!-- ================== button====================== -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<!-- ====================== form End==========================  -->
+
+{% endblock %}
+
+<!-- =========================================== -->

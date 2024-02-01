@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+<!-- ============== title ============================ -->
+
+{% block title %} Update Form {% endblock %}
+
+<!-- ================================================ -->
+
+<!-- ============================== body ================================ -->
+
+{% block body %}
+
+<h2>Update Profile</h2>
+
+<!-- ====================== form start==========================  -->
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <!-- ============ name ========== -->
+  <div class="mb-3">
+    <label for="n" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="n"
+      value="{{prof.name}}"
+      name="name"
+      required
+    />
+  </div>
+
+  <!-- ======================= Email========== -->
+  <div class="mb-3">
+    <label for="e" class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      value="{{prof.email}}"
+      id="e"
+      name="email"
+    />
+  </div>
+
+  <!-- =============== Age ====================== -->
+  <div class="mb-3">
+    <label for="a" class="form-label">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      id="a"
+      name="age"
+      value="{{prof.age}}"
+      required
+    />
+  </div>
+
+  <!-- =============== GEnder ==================== -->
+  <div class="mb-3">
+    <label for="g" class="form-label">Gender</label>
+    <input
+      type="text"
+      class="form-control"
+      value="{{prof.gender}}"
+      id="g"
+      name="gender"
+    />
+  </div>
+
+  <!-- =========== Image=============== -->
+  <div class="mb-3">
+    <label for="i" class="form-label">Image</label>
+    <input
+      type="file"
+      class="form-control"
+      id="i"
+      name="image"
+      accept="image/*"
+    />
+  </div>
+
+  <!-- ===============Address========== -->
+  <div class="mb-3">
+    <label for="add" class="form-label">Address</label>
+    <textarea class="form-control" id="add" name="address" rows="3">
+{{prof.address}}</textarea
+    >
+  </div>
+
+  <!-- ================== button====================== -->
+  <button type="submit" class="btn btn-primary">Update</button>
+</form>
+
+<!-- ====================== form End==========================  -->
+
+{% endblock %}
+
+<!-- =========================================== -->
